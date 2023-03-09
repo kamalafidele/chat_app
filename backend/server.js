@@ -39,8 +39,8 @@ io.on('connection', (socket) => {
     io.emit('typingResponse', data);
   });
 
-  socket.on('userLeft', (sockId) => {
-    users = users.filter((user) => user.socketId !== sockId);
+  socket.on('userLeft', (data) => {
+    users = users.filter((user) => user.socketId !== data.socketId);
     io.emit('newUserResponse', users);
   });
   
